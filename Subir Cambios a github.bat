@@ -10,3 +10,5 @@ Write-Host "Subiendo cambios a GitHub..."
 git push
 
 Write-Host "`n✅ Cambios subidos correctamente."
+
+pause
