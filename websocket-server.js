@@ -3,7 +3,6 @@ const WebSocket = require('ws');
 const PORT = process.env.PORT || 3001;
 const wss = new WebSocket.Server({ port: PORT, host: '0.0.0.0' });
 
-
 let clients = [];
 
 wss.on('connection', (ws) => {
