@@ -1,14 +1,8 @@
-# Script para subir cambios al repositorio GitHub
-Write-Host "Agregando todos los archivos modificados..."
+@echo off
+set /p msg=Escribe el mensaje del commit:
 git add .
-
-# Solicita un mensaje de commit al usuario
-$mensaje = Read-Host "Escribe el mensaje del commit"
-git commit -m "$mensaje"
-
-Write-Host "Subiendo cambios a GitHub..."
+git commit -m "%msg%"
 git push
-
-Write-Host "`n✅ Cambios subidos correctamente."
-
+echo.
+echo ✅ Cambios subidos correctamente.
 pause
