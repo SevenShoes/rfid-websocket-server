@@ -1,17 +1,14 @@
-// websocket-server.js
 const WebSocket = require('ws');
 
-// ✅ Esto permite que Railway asigne el puerto dinámico
 const PORT = process.env.PORT || 3001;
-
 const wss = new WebSocket.Server({ port: PORT });
+
 let clients = [];
 
 wss.on('connection', (ws) => {
   clients.push(ws);
 
   ws.on('message', (msg) => {
-    // Reenviar a todos menos al emisor
     clients.forEach(client => {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(msg);
@@ -24,4 +21,4 @@ wss.on('connection', (ws) => {
   });
 });
 
-console.log(`✅ Servidor WebSocket ejecutándose en el puerto ${PORT}`);
+console.log(`✅ Servidor WebSocket activo en el puerto ${PORT}`);
